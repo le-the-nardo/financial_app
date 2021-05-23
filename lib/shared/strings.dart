@@ -21,4 +21,6 @@ class Strings {
 
   //ferias
   static const String subtituloFerias = '''Programação de Férias do período''';
+  static const String register = '''Crie um usuário e uma senha''';
+  static const String registerTitle = '''Registrar-se''';
 }

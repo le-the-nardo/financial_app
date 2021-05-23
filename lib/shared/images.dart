@@ -13,4 +13,7 @@ class Images {
   static const String step2 = "images/step2.svg";
   static const String step3 = "images/step3.svg";
   static const String step4 = "images/step4.svg";
+
+  //GIF
+  static const String loading = "images/loadinggif.gif";
 }
