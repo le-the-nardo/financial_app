@@ -42,6 +42,7 @@ class WelcomePages extends StatelessWidget {
             ],
           ),
         ),
+        
         Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
@@ -65,8 +66,6 @@ class WelcomePages extends StatelessWidget {
         fontSize: 24,
         fontWeight: FontWeight.bold);
     final _borderRadius = 16.0;
-    final _borderWidth = 2.0;
-    final _borderColor = Color(0xffC9C9C8);
 
     return Padding(
       padding: const EdgeInsets.all(16.0),
@@ -144,14 +143,7 @@ class WelcomePages extends StatelessWidget {
 
   _page2(BuildContext context, String _image) {
     final _colorDots = Color(0xff00559B);
-    final _textStyle = TextStyle(
-        color: _colorDots,
-        fontFamily: "dinpro bold",
-        fontSize: 24,
-        fontWeight: FontWeight.bold);
     final _borderRadius = 16.0;
-    final _borderWidth = 2.0;
-    final _borderColor = Color(0xffC9C9C8);
 
     return Padding(
       padding: const EdgeInsets.all(16.0),
@@ -258,16 +250,8 @@ class WelcomePages extends StatelessWidget {
   }
 
   _page3(BuildContext context, String _image) {
-    final _text = 'Sua vida financeira na palma da sua mão';
     final _colorDots = Color(0xff00559B);
-    final _textStyle = TextStyle(
-        color: _colorDots,
-        fontFamily: "dinpro bold",
-        fontSize: 24,
-        fontWeight: FontWeight.bold);
     final _borderRadius = 16.0;
-    final _borderWidth = 2.0;
-    final _borderColor = Color(0xffC9C9C8);
 
     return Padding(
       padding: const EdgeInsets.all(16.0),
@@ -382,16 +366,8 @@ class WelcomePages extends StatelessWidget {
   }
 
   _page4(BuildContext context, String _image) {
-    final _text = 'Sua vida financeira na palma da sua mão';
     final _colorDots = Color(0xff00559B);
-    final _textStyle = TextStyle(
-        color: _colorDots,
-        fontFamily: "dinpro bold",
-        fontSize: 24,
-        fontWeight: FontWeight.bold);
     final _borderRadius = 16.0;
-    final _borderWidth = 2.0;
-    final _borderColor = Color(0xffC9C9C8);
 
     return Padding(
       padding: const EdgeInsets.all(16.0),
@@ -544,7 +520,7 @@ class WelcomePages extends StatelessWidget {
   _enterButton(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(
+        Navigator.pushReplacement(
             context, MaterialPageRoute(builder: (context) => Login()));
       },
       child: Container(

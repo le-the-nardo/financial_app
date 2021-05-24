@@ -10,10 +10,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-      statusBarColor: Colors.transparent,
-    ));
-
     return BlocProvider<HomeBloc>(
         create: (context) => HomeBloc(), child: _Home());
   }
@@ -52,9 +48,6 @@ class _HomeState extends State<_Home> {
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-      statusBarColor: Colors.transparent,
-    ));
     return WillPopScope(
       onWillPop: () async {
         if (_selectedIndex == 0) return true;
@@ -65,6 +58,7 @@ class _HomeState extends State<_Home> {
         top: false,
         bottom: false,
         child: Scaffold(
+          backgroundColor: Color(0xffEDF0F8),
           body: Stack(
             children: [
               BlocListener<HomeBloc, HomeState>(
@@ -101,8 +95,8 @@ class _HomeState extends State<_Home> {
   }
 
   _bottomNavigationBar(BuildContext context) {
-    final _selectedItemColor = Color(0xff02285A);
-    final _unselectedItemColor = Color(0xff02285A).withOpacity(0.4);
+    final _selectedItemColor = Color(0xff0293ee);
+    final _unselectedItemColor = Color(0xff0293ee).withOpacity(0.6);
     final _iconSize = 27.0;
 
     return BottomNavigationBar(

@@ -1,19 +1,9 @@
 import 'dart:async';
 
-/* import 'package:financial_app/core/presentation/pages/home.dart'; */
-//import 'package:financial_app/features/change_password/presentation/pages/change_password.dart';
-//import 'package:financial_app/features/Register/presentation/bloc/Register_bloc.dart';
-//import 'package:financial_app/features/Register/presentation/bloc/notification_token_bloc.dart';
-//import 'package:financial_app/features/recover_password/presentation/pages/recover_password.dart';
-/* import 'package:financial_app/shared/strings.dart';
-import 'package:financial_app/shared/svg_images.dart';
-import 'package:financial_app/shared/widget/not_available.dart'; */
 import 'package:financial_app/features/login/presentation/pages/login.dart';
-import 'package:financial_app/features/welcome/presentation/pages/welcome_pages.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:financial_app/shared/images.dart';
 import 'package:financial_app/shared/strings.dart';
-import 'package:financial_app/shared/widget/not_available.dart';
 import 'package:financial_app/shared/widget/wait.dart';
 import 'package:financial_app/shared/widget/vspace.dart';
 import 'package:flutter/cupertino.dart';
@@ -299,6 +289,7 @@ class _RegisterState extends State<Register> {
 
   _enterButton(BuildContext context) {
     return GestureDetector(
+      key: Key("alreadyHaveAccount"),
       onTap: () {
         Navigator.pushReplacement(
             context, MaterialPageRoute(builder: (context) => Login()));

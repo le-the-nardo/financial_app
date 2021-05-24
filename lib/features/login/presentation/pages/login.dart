@@ -1,29 +1,17 @@
 import 'dart:async';
-
-/* import 'package:financial_app/core/presentation/pages/home.dart'; */
-//import 'package:financial_app/features/change_password/presentation/pages/change_password.dart';
-//import 'package:financial_app/features/login/presentation/bloc/login_bloc.dart';
-//import 'package:financial_app/features/login/presentation/bloc/notification_token_bloc.dart';
-//import 'package:financial_app/features/recover_password/presentation/pages/recover_password.dart';
-/* import 'package:financial_app/shared/strings.dart';
-import 'package:financial_app/shared/svg_images.dart';
-import 'package:financial_app/shared/widget/not_available.dart'; */
-import 'package:financial_app/core/presentation/pages/home.dart';
 import 'package:financial_app/features/register/presentation/pages/register.dart';
-import 'package:financial_app/features/welcome/presentation/pages/welcome_pages.dart';
+import 'package:financial_app/shared/widget/loading.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:financial_app/shared/images.dart';
 import 'package:financial_app/shared/strings.dart';
 import 'package:financial_app/shared/widget/not_available.dart';
-import 'package:financial_app/shared/widget/wait.dart';
 import 'package:financial_app/shared/widget/vspace.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 /* import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:package_info/package_info.dart';
-import '../../../../user.dart' as user; */
+import 'package:package_info/package_info.dart';*/
 
 class Login extends StatefulWidget {
   @override
@@ -68,15 +56,15 @@ class _LoginState extends State<Login> {
                         child: SingleChildScrollView(
                           child: Column(
                             children: [
-                              _boasVindas(),
+                              _welcome(),
                               VSpace(8),
-                              _subtitulo(),
+                              _subtitle(),
                               VSpace(16),
-                              _entradaUsuario(),
+                              _enterUser(),
                               VSpace(16),
-                              _entradaSenha(),
+                              _enterPassword(),
                               VSpace(16),
-                              _esqueceuSenha(),
+                              _forgotPassword(),
                               VSpace(24),
                               _acessButton(context),
                               VSpace(16.0),
@@ -103,15 +91,15 @@ class _LoginState extends State<Login> {
             VSpace(64),
             _logo(),
             VSpace(32),
-            _boasVindas(),
+            _welcome(),
             VSpace(8),
-            _subtitulo(),
+            _subtitle(),
             VSpace(16),
-            _entradaUsuario(),
+            _enterUser(),
             VSpace(16),
-            _entradaSenha(),
+            _enterPassword(),
             VSpace(16),
-            _esqueceuSenha(),
+            _forgotPassword(),
             VSpace(24),
             _acessButton(context),
             VSpace(16.0),
@@ -124,7 +112,7 @@ class _LoginState extends State<Login> {
 
   void _doLogin() {
     try {
-      if (_username.isEmpty || _password.isEmpty) {
+      if (CredentialsValidator.verifyEmpty(_username, _password)) {
         Fluttertoast.showToast(
           msg: "Por favor, informe o usuário e senha.",
           textColor: Colors.white,
@@ -134,9 +122,8 @@ class _LoginState extends State<Login> {
         );
         return;
       }
-      showWait(context);
-       Navigator.of(context)
-          .push(CupertinoPageRoute(builder: (context) => Home()));
+      Navigator.of(context)
+          .pushReplacement(CupertinoPageRoute(builder: (context) => Loading()));
       //context.bloc<LoginBloc>().login(_username, _password);
     } catch (ex) {
       Fluttertoast.showToast(
@@ -162,7 +149,7 @@ class _LoginState extends State<Login> {
     ),
   );
 
-  _entradaUsuario() {
+  _enterUser() {
     return TextFormField(
       keyboardType: TextInputType.emailAddress,
       style: TextStyle(color: _textColor, fontFamily: "roboto regular"),
@@ -184,7 +171,7 @@ class _LoginState extends State<Login> {
     );
   }
 
-  _entradaSenha() {
+  _enterPassword() {
     return TextFormField(
       obscureText: true,
       focusNode: _focusPassword,
@@ -206,7 +193,7 @@ class _LoginState extends State<Login> {
     );
   }
 
-  _boasVindas() {
+  _welcome() {
     final _text = Strings.bemVindoLogin;
     final _textAlign = TextAlign.center;
     final _fontSize = 20.0;
@@ -223,7 +210,7 @@ class _LoginState extends State<Login> {
     );
   }
 
-  _subtitulo() {
+  _subtitle() {
     final _text = Strings.subtituloLogin;
     final _fontFamily = "dinpro medium";
     final _fontSize = 16.0;
@@ -240,7 +227,7 @@ class _LoginState extends State<Login> {
     );
   }
 
-  _esqueceuSenha() {
+  _forgotPassword() {
     final _mainAxisAlignment = MainAxisAlignment.center;
 
     final _text1 = Strings.esqueceuSenhaLogin;
@@ -277,6 +264,7 @@ class _LoginState extends State<Login> {
 
   _acessButton(BuildContext context) {
     return GestureDetector(
+      key: Key("accessButton"),
       onTap: () {
         print("logar");
         _doLogin();
@@ -304,6 +292,7 @@ class _LoginState extends State<Login> {
 
   _registerButton(BuildContext context) {
     return GestureDetector(
+      key: Key("registerButton"),
       onTap: () {
         Navigator.push(
             context, MaterialPageRoute(builder: (context) => Register()));
@@ -341,5 +330,11 @@ class _LoginState extends State<Login> {
       child:
           SizedBox(height: _imageHeight, width: _imageWidth, child: _testPng),
     );
+  }
+}
+
+class CredentialsValidator {
+  static bool verifyEmpty(String username, String password) {
+    return (username.isEmpty || password.isEmpty) ? true : false;
   }
 }

@@ -10,10 +10,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      /* title: 'Financial APP',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ), */
       home: MyHomePage(title: 'Financial APP'),
     );
   }
@@ -35,15 +31,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      /* appBar: AppBar(
-        title: Text(widget.title),
-      ), */
       body: InitialScreen(),
-     /*  floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), */ // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }

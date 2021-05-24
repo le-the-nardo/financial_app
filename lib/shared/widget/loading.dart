@@ -1,18 +1,16 @@
 import 'dart:async';
 
-import 'package:financial_app/features/welcome/presentation/pages/welcome_pages.dart';
+import 'package:financial_app/core/presentation/pages/home.dart';
 import 'package:financial_app/shared/images.dart';
-import 'package:financial_app/shared/widget/vspace.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
-class InitialScreen extends StatefulWidget {
+class Loading extends StatefulWidget {
   @override
-  _InitialScreenState createState() => _InitialScreenState();
+  _LoadingState createState() => _LoadingState();
 }
 
-class _InitialScreenState extends State<InitialScreen> {
+class _LoadingState extends State<Loading> {
   final GlobalKey<ScaffoldState> _scaffoldStateKey = GlobalKey<ScaffoldState>();
   final _backgroundColor = Colors.white;
   @override
@@ -20,9 +18,9 @@ class _InitialScreenState extends State<InitialScreen> {
     super.initState();
 
     Timer(
-        Duration(seconds: 7),
+        Duration(seconds: 3),
         () => (Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => WelcomePages()))));
+            context, MaterialPageRoute(builder: (context) => Home()))));
   }
 
   @override
@@ -36,15 +34,13 @@ class _InitialScreenState extends State<InitialScreen> {
           backgroundColor: _backgroundColor,
           key: _scaffoldStateKey,
           extendBody: true,
-          body: _logo(),
+          body: _loading(),
         ),
       ),
     );
   }
 
-  _logo() {
-    final _image = Images.logoTransparent;
-    final _logo = Image(image: AssetImage(_image));
+  _loading() {
     final _imageLoading = Images.loading;
     final _loading = Image(image: AssetImage(_imageLoading));
     final _imageHeight = 72.0;
@@ -57,8 +53,6 @@ class _InitialScreenState extends State<InitialScreen> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SizedBox(height: _imageHeight, width: _imageWidth, child: _logo),
-          VSpace(32),
           SizedBox(
             height: _imageHeight,
             width: _imageWidth,

@@ -5,26 +5,37 @@
 // gestures. You can also use WidgetTester to find child widgets in the widget
 // tree, read text, and verify that the values of widget properties are correct.
 
+import 'package:financial_app/features/login/presentation/pages/login.dart';
+import 'package:financial_app/features/register/presentation/pages/register.dart';
+import 'package:financial_app/shared/component_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:financial_app/main.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(MyApp());
+  // Test structure
+  test('title', () {
+    // setup
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    // run
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+    // verify
+  });
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+  // Input tests
+  test('Login empty credentials', () {
+    var result = CredentialsValidator.verifyEmpty("", "");
+    expect(result, true);
+  });
+
+  test('Login not empty credentials', () {
+    var result = CredentialsValidator.verifyEmpty("username", "password");
+    expect(result, false);
+  });
+
+  test('Test if bottom bar has 3 items', () {
+    var result = componentList.length == 3;
+    expect(result, true);
   });
 }
