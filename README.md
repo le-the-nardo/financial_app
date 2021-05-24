@@ -1,16 +1,16 @@
 # Financial app
 > Financial app é um aplicativo financeiro, desenvolvido com Flutter e Dart, que tem o objetivo as seguintes funcionalidades:
-✔ Tela de splash;
-✔ Telas iniciais que apresentam o app para um novo usuário;
-✔ Telas de login e criação de contas;
-✔ Tela de exibição de saldo e carrossel de funcionalidades;
-✔ Tela de exibição, compra e venda de ações;
-✔ Tela de exibição de gráficos;
-✔ Navegação entre menus.
+- Tela de splash;
+- Telas iniciais que apresentam o app para um novo usuário;
+- Telas de login e criação de contas;
+- Tela de exibição de saldo e carrossel de funcionalidades;
+- Tela de exibição, compra e venda de ações;
+- Tela de exibição de gráficos;
+- Navegação entre menus.
 
 
 <p align="center">
-  <img src = "https://github.com/le-the-nardo/financial_app/blob/main/lib/images/welcome.gif" height="700">
+  <img src = "https://github.com/le-the-nardo/financial_app/blob/master/images/welcome.gif" height="700">
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </p>
 
