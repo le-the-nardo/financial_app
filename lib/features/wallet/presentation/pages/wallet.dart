@@ -1,13 +1,7 @@
-import 'dart:convert';
-import 'dart:io';
-
 import 'package:financial_app/shared/widget/hspace.dart';
 import 'package:financial_app/shared/widget/vspace.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/svg.dart';
 
 class Wallet extends StatelessWidget {
   @override
@@ -21,8 +15,6 @@ class Wallet extends StatelessWidget {
   }
 
   _home(BuildContext context) {
-    final _fit = BoxFit.fitWidth;
-
     return SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -127,7 +119,6 @@ class Wallet extends StatelessWidget {
   }
 
   _buttons(BuildContext context) {
-    final _borderRadius = BorderRadius.circular(10.0);
     final _textColor1 = Colors.white;
     final _textStyle = TextStyle(
         fontFamily: "dinpro",

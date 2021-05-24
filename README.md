@@ -29,44 +29,34 @@
 - [Bloc - Gerenciamento de estado](https://pub.dev/packages/flutter_bloc)
 - [Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
 - [Unit tests](https://flutter.dev/docs/cookbook/testing/unit/introduction)
+- [Clean Code](https://www.amazon.com.br/dp/B001GSTOAM/ref=dp-kindle-redirect?_encoding=UTF8&btkr=1)
   
 
 ## Instalações e usos
 
 <h4 align="center">
-  ⚠️ Antes de rodar a aplicação, é necessário que o Emulador esteja rodando ⚠️
+  ⚠️ Antes de executar a aplicação, é necessário que o Emulador esteja rodando ⚠️
 </h4>
 
 Clone ou faça o download desse repositório:
 
-
 ```
-# Clone o repositório
 $ git clone https://github.com/le-the-nardo/financial_app
 ```
 
-> Projeto que desenvolvi como estudo para aprender as principais funcionalidades do Flutter e da linguagem DART, utilizados para desenvolvimento mobile. 
-O projeto é uma réplica da calculadora dos celulares iphone, com seu estilo e regras.
+Após clonar o projeto, rode o seguinte código em seu terminal, dentro da pasta /financial_app
 
-<p align="center">
-  <img src = "https://github.com/LeoZeza/Calculator-Flutter/blob/master/lib/assets/principal_screen.jpg" height="700">
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</p>
+```
+$ dart pub get
+```
 
-## Começando...
+E depois rode
 
-Esse projeto é um ponto de partida para uma aplicação Flutter.
+```
+$ flutter run
+```
 
-Alguns recursos para você começar e entender melhor um projeto Flutter:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-Para obter ajuda sobre como iniciar o Flutter, consulte:
-[documentação online](https://flutter.dev/docs), que oferece tutoriais,
-exemplos, orientações sobre desenvolvimento móvel e uma referência completa sobre API.
-
-
+Para rodar os testes, basta ir na sessão de testes do Visual Studio Code e rodar o arquivo widget_test.dart
 
 ## Autor 👦🏻
 
